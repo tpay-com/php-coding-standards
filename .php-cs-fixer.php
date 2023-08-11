@@ -2,10 +2,8 @@
 
 require_once __DIR__.'/vendor/autoload.php';
 
-return Tpay\CodingStandards\PhpCsFixerConfig::createWithAllRules()
+return Tpay\CodingStandards\PhpCsFixerConfigFactory::createWithAllRules()
     ->setFinder(
         PhpCsFixer\Finder::create()
-            ->ignoreDotFiles(false)
-            ->files()
             ->in(__DIR__),
     );

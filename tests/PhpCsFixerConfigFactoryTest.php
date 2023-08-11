@@ -10,25 +10,25 @@ use PhpCsFixerCustomFixers\Fixers as CustomFixers;
 use PHPUnit\Framework\TestCase;
 use Tpay\CodingStandards\Legacy;
 use Tpay\CodingStandards\NonDefaultConfig;
-use Tpay\CodingStandards\PhpCsFixerConfig;
+use Tpay\CodingStandards\PhpCsFixerConfigFactory;
 
 /**
  * @internal
  *
- * @covers \Tpay\CodingStandards\PhpCsFixerConfig
+ * @covers \Tpay\CodingStandards\PhpCsFixerConfigFactory
  */
-final class PhpCsFixerConfigTest extends TestCase
+final class PhpCsFixerConfigFactoryTest extends TestCase
 {
     public function testNoDeprecatedFixersAreReturned(): void
     {
-        self::assertNoDeprecatedRules(PhpCsFixerConfig::createWithAllRules()->getRules());
-        self::assertNoDeprecatedRules(PhpCsFixerConfig::createWithNonRiskyRules()->getRules());
-        self::assertNoDeprecatedRules(PhpCsFixerConfig::createWithLegacyRules()->getRules());
+        self::assertNoDeprecatedRules(PhpCsFixerConfigFactory::createWithAllRules()->getRules());
+        self::assertNoDeprecatedRules(PhpCsFixerConfigFactory::createWithNonRiskyRules()->getRules());
+        self::assertNoDeprecatedRules(PhpCsFixerConfigFactory::createWithLegacyRules()->getRules());
     }
 
     public function testUnwantedRulesAreNotInNonDefaultConfig(): void
     {
-        $rules = PhpCsFixerConfig::createWithAllRules()->getRules();
+        $rules = PhpCsFixerConfigFactory::createWithAllRules()->getRules();
         foreach ($rules as $name => $config) {
             if (false === $config) { // if rules is unwanted
                 // it must not be overridden with non-default config
@@ -39,7 +39,7 @@ final class PhpCsFixerConfigTest extends TestCase
 
     public function testUnwantedRulesAreNotInLegacy(): void
     {
-        $rules = PhpCsFixerConfig::createWithAllRules()->getRules();
+        $rules = PhpCsFixerConfigFactory::createWithAllRules()->getRules();
         foreach ($rules as $name => $config) {
             if (false === $config) { // if rules is unwanted
                 // it must not be overridden from legacy config

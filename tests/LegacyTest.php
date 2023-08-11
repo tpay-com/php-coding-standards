@@ -3,7 +3,7 @@
 namespace Tpay\CodingStandards\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Tpay\CodingStandards\PhpCsFixerConfig;
+use Tpay\CodingStandards\PhpCsFixerConfigFactory;
 
 /**
  * @internal
@@ -14,21 +14,21 @@ final class LegacyTest extends TestCase
 {
     public function testCreateWithAllRules(): void
     {
-        $rules = PhpCsFixerConfig::createWithAllRules()->getRules();
+        $rules = PhpCsFixerConfigFactory::createWithAllRules()->getRules();
 
         self::assertTrue($rules['visibility_required']);
     }
 
     public function testCreateWithNonRiskyRules(): void
     {
-        $rules = PhpCsFixerConfig::createWithNonRiskyRules()->getRules();
+        $rules = PhpCsFixerConfigFactory::createWithNonRiskyRules()->getRules();
 
         self::assertTrue($rules['visibility_required']);
     }
 
     public function testCreateWithLegacyRules(): void
     {
-        $rules = PhpCsFixerConfig::createWithLegacyRules()->getRules();
+        $rules = PhpCsFixerConfigFactory::createWithLegacyRules()->getRules();
 
         self::assertSame(['elements' => ['method']], $rules['visibility_required']);
     }
