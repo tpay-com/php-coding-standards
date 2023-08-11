@@ -3,7 +3,7 @@
 namespace Tpay\CodingStandards\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Tpay\CodingStandards\PhpCsFixerConfig;
+use Tpay\CodingStandards\PhpCsFixerConfigFactory;
 
 /**
  * @internal
@@ -14,21 +14,21 @@ final class NonDefaultConfigTest extends TestCase
 {
     public function testCreateWithAllRules(): void
     {
-        $rules = PhpCsFixerConfig::createWithAllRules()->getRules();
+        $rules = PhpCsFixerConfigFactory::createWithAllRules()->getRules();
 
         self::assertSame(['header' => ''], $rules['header_comment']);
     }
 
     public function testCreateWithNonRiskyRules(): void
     {
-        $rules = PhpCsFixerConfig::createWithNonRiskyRules()->getRules();
+        $rules = PhpCsFixerConfigFactory::createWithNonRiskyRules()->getRules();
 
         self::assertSame(['header' => ''], $rules['header_comment']);
     }
 
     public function testCreateWithLegacyRules(): void
     {
-        $rules = PhpCsFixerConfig::createWithLegacyRules()->getRules();
+        $rules = PhpCsFixerConfigFactory::createWithLegacyRules()->getRules();
 
         self::assertSame(['header' => ''], $rules['header_comment']);
     }
