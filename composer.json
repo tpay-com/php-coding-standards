@@ -1,0 +1,31 @@
+{
+    "name": "tpay-com/coding-standards",
+    "license": "MIT",
+    "type": "library",
+    "require": {
+        "friendsofphp/php-cs-fixer": "^3.22",
+        "kubawerlos/php-cs-fixer-custom-fixers": "^3.16.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tpay\\CodingStandards\\": "./src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tpay\\CodingStandards\\Tests\\": "./src/"
+        }
+    },
+    "scripts": {
+        "fix": [
+            "php-cs-fixer fix -vvv"
+        ],
+        "verify": [
+            "php-cs-fixer fix -vvv --diff --dry-run",
+            "phpunit --no-configuration ./tests"
+        ]
+    }
+}
