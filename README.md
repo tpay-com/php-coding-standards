@@ -20,8 +20,6 @@ Create `.php-cs-fixer.php` file and use `Tpay\CodingStandards\PhpCsFixerConfigFa
 return Tpay\CodingStandards\PhpCsFixerConfigFactory::createWithAllRules()
     ->setFinder(
         PhpCsFixer\Finder::create()
-            ->ignoreDotFiles(false)
-            ->files()
             ->in(__DIR__)
     );
 ```
