@@ -4,6 +4,7 @@
 [![PHP version](https://img.shields.io/packagist/php-v/tpay-com/coding-standards.svg)](https://php.net)
 [![License](https://img.shields.io/github/license/tpay-com/php-coding-standards.svg)](LICENSE)
 [![CI status](https://github.com/tpay-com/php-coding-standards/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/tpay-com/php-coding-standards/actions)
+[![Type coverage](https://shepherd.dev/github/tpay-com/php-coding-standards/coverage.svg)](https://shepherd.dev/github/tpay-com/php-coding-standards)
 
 
 ## Installation
