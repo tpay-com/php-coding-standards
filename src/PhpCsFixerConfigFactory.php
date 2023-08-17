@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Tpay\CodingStandards;
 
@@ -11,9 +13,7 @@ use PhpCsFixerCustomFixers\Fixers;
 final class PhpCsFixerConfigFactory
 {
     private const TYPE_ALL = 0;
-
     private const TYPE_NON_RISKY = 1;
-
     private const TYPE_LEGACY = 2;
 
     public static function createWithAllRules(): ConfigInterface
@@ -54,9 +54,7 @@ final class PhpCsFixerConfigFactory
             ->setRules($rules);
     }
 
-    /**
-     * @return array<string, mixed>|bool
-     */
+    /** @return array<string, mixed>|bool */
     private static function getConfig(int $type, FixerInterface $fixer)
     {
         if (Unwanted::isUnwanted($fixer->getName())) {

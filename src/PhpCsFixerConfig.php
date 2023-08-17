@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Tpay\CodingStandards;
 
@@ -7,9 +9,7 @@ use PhpCsFixer\Finder;
 
 final class PhpCsFixerConfig extends Config
 {
-    /**
-     * @return Finder
-     */
+    /** @return Finder */
     public function getFinder(): iterable
     {
         return parent::getFinder()
