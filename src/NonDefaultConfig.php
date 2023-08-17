@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Tpay\CodingStandards;
 
-use PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer;
-use PhpCsFixerCustomFixers\Fixer\DataProviderStaticFixer;
-use ReflectionClass;
-
 final class NonDefaultConfig
 {
     /** @return null|array<string, mixed> */
@@ -24,14 +20,28 @@ final class NonDefaultConfig
             'method_argument_space' => ['on_multiline' => 'ensure_fully_multiline'],
             'native_constant_invocation' => ['fix_built_in' => false, 'include' => [], 'scope' => 'all', 'strict' => true],
             'native_function_invocation' => ['include' => [], 'scope' => 'all', 'strict' => true],
-            'no_extra_blank_lines' => ['tokens' => array_diff((new ReflectionClass(NoExtraBlankLinesFixer::class))->getStaticPropertyValue('availableTokens'), ['use_trait'])],
+            'no_extra_blank_lines' => ['tokens' => [
+                'attribute',
+                'break',
+                'case',
+                'continue',
+                'curly_brace_block',
+                'default',
+                'extra',
+                'parenthesis_brace_block',
+                'return',
+                'square_brace_block',
+                'switch',
+                'throw',
+                'use',
+            ]],
             'no_superfluous_phpdoc_tags' => ['remove_inheritdoc' => true],
             'ordered_imports' => ['sort_algorithm' => 'alpha', 'imports_order' => ['class', 'function', 'const']],
             'php_unit_data_provider_name' => ['prefix' => 'data', 'suffix' => ''],
+            'php_unit_data_provider_static' => ['force' => true],
             'php_unit_test_case_static_method_calls' => ['call_type' => 'self'],
             'phpdoc_line_span' => ['const' => 'single', 'method' => 'single', 'property' => 'single'],
             'whitespace_after_comma_in_array' => ['ensure_single_space' => true],
-            DataProviderStaticFixer::name() => ['force' => true],
         ][$name] ?? null;
     }
 }
