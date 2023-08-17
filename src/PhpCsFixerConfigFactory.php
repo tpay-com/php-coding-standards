@@ -33,14 +33,9 @@ final class PhpCsFixerConfigFactory
 
     private static function create(int $type): ConfigInterface
     {
-        $fixers = [
-            ...(new FixerFactory())->registerBuiltInFixers()->getFixers(),
-            ...(new Fixers()),
-        ];
-
         $rules = [];
 
-        foreach ($fixers as $fixer) {
+        foreach (self::getFixers() as $fixer) {
             if ($fixer instanceof DeprecatedFixerInterface) {
                 continue;
             }
@@ -52,6 +47,17 @@ final class PhpCsFixerConfigFactory
             ->registerCustomFixers(new Fixers())
             ->setRiskyAllowed(true)
             ->setRules($rules);
+    }
+
+    /** @return iterable<FixerInterface> */
+    private static function getFixers(): iterable
+    {
+        foreach ((new FixerFactory())->registerBuiltInFixers()->getFixers() as $fixer) {
+            yield $fixer;
+        }
+        foreach (new Fixers() as $fixer) {
+            yield $fixer;
+        }
     }
 
     /** @return array<string, mixed>|bool */
