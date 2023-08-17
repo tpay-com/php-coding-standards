@@ -1,8 +1,10 @@
 {
     "name": "tpay-com/coding-standards",
+    "description": "Tpay.com coding standards library",
     "license": "MIT",
     "type": "library",
     "require": {
+        "php": "^7.4 || ^8.0",
         "friendsofphp/php-cs-fixer": "^3.22",
         "kubawerlos/php-cs-fixer-custom-fixers": "^3.16.2"
     },
