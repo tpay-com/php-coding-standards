@@ -28,7 +28,7 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
-          extensions: none, curl, dom, iconv, json, mbstring, tokenizer, xml, xmlwriter
+          extensions: none, curl, dom, iconv, json, mbstring, simplexml, tokenizer, xml, xmlwriter
           coverage: none
 
       - id: composer-cache
