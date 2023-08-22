@@ -18,9 +18,13 @@ composer require --dev tpay-com/coding-standards
 Create `.php-cs-fixer.php` file and use `Tpay\CodingStandards\PhpCsFixerConfigFactory`:
 ```php
 <?php
+
+require __DIR__ . '/vendor/tpay-com/coding-standards/bootstrap.php';
+
 return Tpay\CodingStandards\PhpCsFixerConfigFactory::createWithAllRules()
     ->setFinder(
         PhpCsFixer\Finder::create()
+            ->ignoreDotFiles(false)
             ->in(__DIR__)
     );
 ```
