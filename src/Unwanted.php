@@ -14,6 +14,7 @@ use PhpCsFixerCustomFixers\Fixer\PhpdocOnlyAllowedAnnotationsFixer;
 use PhpCsFixerCustomFixers\Fixer\PhpdocVarAnnotationToAssertFixer;
 use PhpCsFixerCustomFixers\Fixer\PromotedConstructorPropertyFixer;
 use PhpCsFixerCustomFixers\Fixer\ReadonlyPromotedPropertiesFixer;
+use PhpCsFixerCustomFixers\Fixer\TypedClassConstantFixer;
 
 final class Unwanted
 {
@@ -55,6 +56,7 @@ final class Unwanted
                 PhpdocVarAnnotationToAssertFixer::name(),
                 PromotedConstructorPropertyFixer::name(),
                 ReadonlyPromotedPropertiesFixer::name(),
+                TypedClassConstantFixer::name(),
             ],
             true,
         );
