@@ -4,79 +4,50 @@ declare(strict_types=1);
 
 namespace Tpay\CodingStandards;
 
-use PhpCsFixerCustomFixers\Fixer\AbstractFixer;
-use PhpCsFixerCustomFixers\Fixer\ConstructorEmptyBracesFixer;
-use PhpCsFixerCustomFixers\Fixer\DeclareAfterOpeningTagFixer;
-use PhpCsFixerCustomFixers\Fixer\EmptyFunctionBodyFixer;
-use PhpCsFixerCustomFixers\Fixer\NoImportFromGlobalNamespaceFixer;
-use PhpCsFixerCustomFixers\Fixer\NoNullableBooleanTypeFixer;
-use PhpCsFixerCustomFixers\Fixer\NoReferenceInFunctionDefinitionFixer;
-use PhpCsFixerCustomFixers\Fixer\PhpdocOnlyAllowedAnnotationsFixer;
-use PhpCsFixerCustomFixers\Fixer\PhpdocVarAnnotationToAssertFixer;
-use PhpCsFixerCustomFixers\Fixer\PromotedConstructorPropertyFixer;
-use PhpCsFixerCustomFixers\Fixer\ReadonlyPromotedPropertiesFixer;
-
 final class Unwanted
 {
     public static function isUnwanted(string $name): bool
     {
-        /** @var list<string> $unwanted */
-        $unwanted = [
-            'braces',
-            'combine_consecutive_issets',
-            'combine_consecutive_unsets',
-            'date_time_immutable',
-            'final_class',
-            'general_phpdoc_annotation_remove',
-            'group_import',
-            'heredoc_indentation',
-            'mb_str_functions',
-            'no_blank_lines_before_namespace',
-            'not_operator_with_space',
-            'not_operator_with_successor_space',
-            'octal_notation',
-            'php_unit_attributes',
-            'php_unit_internal_class',
-            'php_unit_size_class',
-            'php_unit_strict',
-            'php_unit_test_class_requires_covers',
-            'phpdoc_summary',
-            'phpdoc_to_property_type',
-            'phpdoc_to_return_type',
-            'single_line_comment_spacing',
-            'single_line_throw',
-            'strict_param',
-            'string_implicit_backslashes',
-            'void_return',
-
-            ConstructorEmptyBracesFixer::name(),
-            DeclareAfterOpeningTagFixer::name(),
-            EmptyFunctionBodyFixer::name(),
-            NoImportFromGlobalNamespaceFixer::name(),
-            NoNullableBooleanTypeFixer::name(),
-            NoReferenceInFunctionDefinitionFixer::name(),
-            PhpdocOnlyAllowedAnnotationsFixer::name(),
-            PhpdocVarAnnotationToAssertFixer::name(),
-            PromotedConstructorPropertyFixer::name(),
-            ReadonlyPromotedPropertiesFixer::name(),
-        ];
-
-        $unwantedIfExists = [
-            'PhpCsFixerCustomFixers\\Fixer\\PhpdocTagNoNamedArgumentsFixer',
-            'PhpCsFixerCustomFixers\\Fixer\\TypedClassConstantFixer',
-        ];
-
-        while ($class = array_shift($unwantedIfExists)) {
-            if (class_exists($class) && is_a($class, AbstractFixer::class, true)) {
-                $fixerName = $class::name();
-                $unwanted[] = $fixerName;
-            }
-        }
-
         return in_array(
             $name,
-            $unwanted,
-            true
+            [
+                'braces',
+                'combine_consecutive_issets',
+                'combine_consecutive_unsets',
+                'date_time_immutable',
+                'final_class',
+                'general_phpdoc_annotation_remove',
+                'group_import',
+                'heredoc_indentation',
+                'mb_str_functions',
+                'no_blank_lines_before_namespace',
+                'not_operator_with_space',
+                'not_operator_with_successor_space',
+                'octal_notation',
+                'php_unit_internal_class',
+                'php_unit_size_class',
+                'php_unit_strict',
+                'php_unit_test_class_requires_covers',
+                'phpdoc_summary',
+                'phpdoc_to_property_type',
+                'single_line_comment_spacing',
+                'single_line_throw',
+                'strict_param',
+                'void_return',
+                'PhpCsFixerCustomFixers/constructor_empty_braces',
+                'PhpCsFixerCustomFixers/declare_after_opening_tag',
+                'PhpCsFixerCustomFixers/empty_function_body',
+                'PhpCsFixerCustomFixers/no_import_from_global_namespace',
+                'PhpCsFixerCustomFixers/no_nullable_boolean_type',
+                'PhpCsFixerCustomFixers/no_reference_in_function_definition',
+                'PhpCsFixerCustomFixers/phpdoc_only_allowed_annotations',
+                'PhpCsFixerCustomFixers/phpdoc_var_annotation_to_assert',
+                'PhpCsFixerCustomFixers/promoted_constructor_property',
+                'PhpCsFixerCustomFixers/readonly_promoted_properties',
+                'PhpCsFixerCustomFixers/phpdoc_tag_no_named_arguments',
+                'PhpCsFixerCustomFixers/typed_class_constant',
+            ],
+            true,
         );
     }
 }
