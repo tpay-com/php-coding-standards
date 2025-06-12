@@ -61,14 +61,14 @@ final class Unwanted
             ReadonlyPromotedPropertiesFixer::name(),
         ];
 
-        $fixersRequiredIfExists = [
+        $unwantedIfExists = [
             'PhpCsFixerCustomFixers\\Fixer\\PhpdocTagNoNamedArgumentsFixer',
             'PhpCsFixerCustomFixers\\Fixer\\TypedClassConstantFixer',
         ];
 
-        while ($fixerClass = array_shift($fixersRequiredIfExists)) {
-            if (class_exists($fixerClass) && is_a($fixerClass, AbstractFixer::class, true)) {
-                $fixerName = $fixerClass::name();
+        while ($class = array_shift($unwantedIfExists)) {
+            if (class_exists($class) && is_a($class, AbstractFixer::class, true)) {
+                $fixerName = $class::name();
                 $unwanted[] = $fixerName;
             }
         }
