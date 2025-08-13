@@ -18,6 +18,7 @@ final class NonDefaultConfig
             'header_comment' => ['header' => ''],
             'increment_style' => ['style' => 'post'],
             'method_argument_space' => ['on_multiline' => 'ensure_fully_multiline'],
+            'numeric_literal_separator' => ['strategy' => 'no_separator'],
             'native_constant_invocation' => ['fix_built_in' => false, 'include' => [], 'scope' => 'all', 'strict' => true],
             'native_function_invocation' => ['include' => [], 'scope' => 'all', 'strict' => true],
             'no_extra_blank_lines' => ['tokens' => [
